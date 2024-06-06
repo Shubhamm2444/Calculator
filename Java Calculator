@@ -1,0 +1,45 @@
+import java.util.Scanner;
+public class Calculator {
+ public static void main(String[] args) {
+ Scanner scanner = new Scanner(System.in);
+double num1, num2;
+char operator;
+System.out.println("Enter first number: ");
+num1 = scanner.nextDouble();
+System.out.println("Enter operator (+, -, *, /): ");
+operator = scanner.next().charAt(0);
+ System.out.println("Enter second number: ");
+ num2 = scanner.nextDouble();
+double result = calculate(num1, operator, num2);
+System.out.println(num1 + " " + operator + " " + num2 + " = " + result);
+    }
+public static double calculate(double num1, char operator, double num2) {
+        switch (operator) {
+            case '+':
+                return num1 + num2;
+            case '-':
+                return num1 - num2;
+            case '*':
+                return num1 * num2;
+            case '/':
+                if (num2 == 0) {
+                    throw new ArithmeticException("Division by zero");
+                }
+                return num1 / num2;
+            default:
+                throw new IllegalArgumentException("Invalid operator");
+        }
+    }
+}
+
+
+//Explanation:
+Imports Scanner class for user input.
+Declares variables for numbers, operator, and result.
+Prompts user for input using System.out.println().
+Uses Scanner to read user input.
+Calls calculate() function to perform the operation.
+calculate() function uses a switch statement for efficient operation selection.
+Handles division by zero exception using throw.
+Throws an exception for invalid operators.
+Maintains good formatting for readability.
